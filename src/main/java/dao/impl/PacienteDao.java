@@ -15,7 +15,7 @@ import java.util.Optional;
 
 public class PacienteDao implements IDao<Paciente> {
     private DBConnection dbConnection;
-    static final Logger LOGGER = LogManager.getLogger(PacienteDao.class.getName());
+    static final Logger LOGGER = LogManager.getLogger(PacienteDao.class);
     private static PacienteDao pacienteDao = null;
     private static final EnderecoService enderecoService = new EnderecoService();
 
@@ -153,7 +153,6 @@ public class PacienteDao implements IDao<Paciente> {
     @Override
     public List<Paciente> resultSetToList(ResultSet rs) throws SQLException{
         List<Paciente> pacientes = new ArrayList<>();
-        EnderecoService enderecoService = new EnderecoService();
         while(rs.next()){
             int idPaciente = rs.getInt("idPaciente");
             Paciente paciente = new Paciente(

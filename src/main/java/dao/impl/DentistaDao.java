@@ -50,7 +50,7 @@ public class DentistaDao implements IDao<Dentista> {
             }
             LOGGER.debug("Consulta realizada com sucesso!");
             try {
-                dentista.setEndereco(enderecoService.buscarReferenteAoMorador(matricula, Dentista.class.getName()).get());
+                dentista.setEndereco(enderecoService.buscarReferenteAoMorador(matricula, "Dentista").get());
             } catch (Exception e){
                 LOGGER.error("Endereco nulo!");
             }
