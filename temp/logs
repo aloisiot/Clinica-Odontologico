@@ -17443,3 +17443,19 @@ java.util.NoSuchElementException: No value present
 [2021-11-07 21:37:48] [ INFO ] [EnderecoDao:51] Consulta realizada com sucesso!
 [2021-11-07 21:37:48] [ DEBUG] [EnderecoDao:55] Conexao finalizada!
 [2021-11-07 21:37:48] [ INFO ] [EnderecoServiceHandler:37] No value present
+[2021-11-07 22:03:32] [ DEBUG] [Server:16]  - INICIANDO HTTP-SERVER - 
+[2021-11-07 22:04:34] [ DEBUG] [Server:16]  INICIANDO SERVIDOR HTTP
+[2021-11-07 22:06:45] [ DEBUG] [Server:16]  INICIANDO SERVIDOR HTTP
+[2021-11-07 22:06:45] [ DEBUG] [Server:24] Servidor rodando na porta 8000
+[2021-11-07 22:07:53] [ DEBUG] [Server:16] Iniciando servidor http!
+[2021-11-07 22:07:53] [ DEBUG] [Server:24] Servidor rodando na porta 8000!
+[2021-11-07 22:09:04] [ DEBUG] [Server:16] Iniciando servidor http!
+[2021-11-07 22:09:04] [ DEBUG] [Server:27] Servidor rodando na porta 8000!
+[2021-11-07 22:09:20] [ DEBUG] [Server:16] Iniciando servidor http!
+[2021-11-07 22:09:20] [ DEBUG] [Server:27] Servidor rodando na porta 8000!
+[2021-11-07 22:09:36] [ DEBUG] [Server:16] Iniciando servidor http!
+[2021-11-07 22:09:36] [ DEBUG] [Server:27] Servidor rodando na porta 8000!
+[2021-11-07 22:10:14] [ DEBUG] [Server:16] Iniciando servidor http!
+[2021-11-07 22:10:14] [ DEBUG] [Server:27] Servidor rodando na porta 8000!
+[2021-11-07 22:10:38] [ DEBUG] [Server:16] Iniciando servidor http!
+[2021-11-07 22:10:38] [ DEBUG] [Server:24] Servidor rodando na porta 8000!
