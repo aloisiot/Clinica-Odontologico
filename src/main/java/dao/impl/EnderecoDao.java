@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Optional;
 
 public class EnderecoDao implements IDao<Endereco> {
-    private static DBConnection dbConnection;
-    static final Logger LOGGER = LogManager.getLogger(EnderecoDao.class.getName());
-    private static EnderecoDao enderecoDao;
+    private DBConnection dbConnection;
+    private static final Logger LOGGER = LogManager.getLogger(EnderecoDao.class.getName());
+    private static EnderecoDao enderecoDao = null;
 
     private EnderecoDao(){}
 
@@ -27,8 +27,8 @@ public class EnderecoDao implements IDao<Endereco> {
     @Override
     public Optional<Endereco> buscar(int idEndereco){
         LOGGER.debug("Consultando endereco na base de dados (idEndereco : " + idEndereco +')');
-        Connection connection = null;
-        Statement statement = null;
+        Connection connection;
+        Statement statement;
         String query = String.format("SELECT * FROM enderecos WHERE idEndereco = %d;", idEndereco);
         Endereco endereco = null;
 
@@ -63,8 +63,8 @@ public class EnderecoDao implements IDao<Endereco> {
     public Optional<Endereco> buscarReferenteAoMorador(int idMorador, String classMorador){
         LOGGER.debug("Consultando endereco referente determinado morador (idMorador : " + idMorador +')');
         Endereco endereco = null;
-        Connection connection= null;
-        Statement statement = null;
+        Connection connection;
+        Statement statement;
         String query = String.format("SELECT * FROM enderecos WHERE idMorador = %d AND classMorador = '%s' LIMIT 1;",
                 idMorador,
                 classMorador

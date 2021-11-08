@@ -15,7 +15,7 @@ import java.util.Optional;
 
 public class DentistaDao implements IDao<Dentista> {
     private DBConnection dbConnection;
-    static final Logger LOGGER = LogManager.getLogger(DentistaDao.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(DentistaDao.class);
     private static DentistaDao dentistaDao = null;
     private static final EnderecoService enderecoService = new EnderecoService();
 
@@ -50,7 +50,7 @@ public class DentistaDao implements IDao<Dentista> {
             }
             LOGGER.debug("Consulta realizada com sucesso!");
             try {
-                dentista.setEndereco(enderecoService.buscarReferenteAoMorador(matricula, "Dentista").get());
+                dentista.setEndereco(enderecoService.buscarReferenteAoMorador(matricula, Dentista.class.getName()).get());
             } catch (Exception e){
                 LOGGER.error("Endereco nulo!");
             }
@@ -101,7 +101,6 @@ public class DentistaDao implements IDao<Dentista> {
             connection.close();
             LOGGER.debug("Conexao finalizada!");
         } catch (SQLException e){
-            System.err.println(e.getMessage());
             LOGGER.error("Falha na conexão!", e);
         }
         return dentista;

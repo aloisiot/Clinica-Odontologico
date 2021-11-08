@@ -27,11 +27,11 @@ public class PacienteDao implements IDao<Paciente> {
     }
 
     @Override
-    public Optional<Paciente> buscar(int id){
-        LOGGER.debug("Consultando paciente na base de dados (idPaciente : " + id +')');
+    public Optional<Paciente> buscar(int idPaciente){
+        LOGGER.debug("Consultando paciente na base de dados (idPaciente : " + idPaciente +')');
         Connection connection;
         Statement statement;
-        String query = String.format("SELECT * FROM pacientes WHERE idPaciente = %d;", id);
+        String query = String.format("SELECT * FROM pacientes WHERE idPaciente = %d;", idPaciente);
         Paciente paciente = null;
 
         try{
@@ -51,7 +51,7 @@ public class PacienteDao implements IDao<Paciente> {
             }
             LOGGER.debug("Consulta realizada com sucesso!");
             try {
-                paciente.setEndereco(enderecoService.buscarReferenteAoMorador(id, "Paciente").get());
+                paciente.setEndereco(enderecoService.buscarReferenteAoMorador(idPaciente, "Paciente").get());
             } catch (Exception e){
                 LOGGER.error("Endereco nulo!");
             }
@@ -126,7 +126,6 @@ public class PacienteDao implements IDao<Paciente> {
             connection.close();
             LOGGER.debug("Conexao finalizada!");
         } catch (SQLException e){
-            System.err.println(e.getMessage());
             LOGGER.error("Falha na conexão!", e);
         }
         return paciente;
